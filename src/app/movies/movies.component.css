@@ -1,0 +1,24 @@
+.movieImage{
+    float: left;
+    max-height:400px;
+    max-width:500px;
+}
+.movieDesc{
+    min-height:400px;
+}
+.pos_center{
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 5%;
+    padding: 10px;
+}
+.td-details{
+    border-right: 1px solid white;
+    border-top: 0px;
+    text-align: right;
+    max-width: 200px;
+}
+.td-data{
+    border-top: 0px;
+}

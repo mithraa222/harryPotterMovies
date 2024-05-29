@@ -1,0 +1,64 @@
+<div *ngIf="viewTable" class="pos_center">
+    <h3>Filters</h3>
+    <div>
+        <label>Title</label>
+        <input type="text" name="search" [(ngModel)]="movieTitle">
+
+        <label>Release Year</label>
+        <input type="text" name="search" [(ngModel)]="releaseDate">
+    </div>
+
+    <div>
+        <table style="overflow: hidden;max-height: 100%;">
+            <tbody style="border: 0px;">
+                <tr *ngFor="let information of info | filter:movieTitle:releaseDate">
+                    <td style="border-top: 0px;">
+                        <h3>{{information.title}}</h3>
+                        <div><label>Release Date: {{information.release_date}}</label><label>Budget: ${{information.budget}} million</label><label>Duration: {{information.duration}} mins</label></div>
+                    </td>
+                    <td style="border-top: 0px;">
+                        <button [id]="information.id" (click)="handleDetails(information.id)" style="margin-left: 200px;">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div *ngIf="!viewTable">
+    <div class="pos_center" >
+        <button (click)="backEvent()">Back</button>
+        <div><h3>{{movieDetails.title}}</h3></div>
+        <div>
+            <img class="movieImage" [src]="movieDetails.poster" alt="haary potter movie">
+            <p class="movieDesc"><b>Summary:</b> {{movieDetails.summary}}</p>
+        </div>
+        <h3 style="text-align: center;">Details</h3>
+        <table style="padding-top: 5px;">
+            <tbody style="border: 0px;">
+                <tr>
+                    <td class="td-details">Box office</td>
+                    <td class="td-data">${{movieDetails.box_office}} million</td>
+                </tr>
+                <tr>
+                    <td class="td-details">Budget</td>
+                    <td class="td-data">${{movieDetails.budget}} million</td>
+                </tr>
+                <tr>
+                    <td class="td-details">Duration</td>
+                    <td class="td-data">{{movieDetails.duration}} mins</td>
+                </tr>
+                <tr>
+                    <td class="td-details">Producers</td>
+                    <td class="td-data">{{movieDetails.producers}}</td>
+                </tr>
+                <tr>
+                    <td class="td-details">Cinematographers</td>
+                    <td class="td-data">{{movieDetails.cinematographers}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>   
+
+
