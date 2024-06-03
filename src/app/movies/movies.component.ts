@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { FilterPipe } from "../filter.pipe";
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesInfo } from '../_model/MoviesInfo';
+import { MovieDetail } from '../_model/MovieDetail';
 
 @Component({
     selector: 'app-movies',
@@ -17,8 +18,8 @@ import { MoviesInfo } from '../_model/MoviesInfo';
 export class MoviesComponent implements OnInit{
 
   viewTable:boolean = false;
-  info:Array<MoviesInfo>=[];
-  movieDetails:any={};
+  info!:Array<MoviesInfo>;
+  movieDetails!: MovieDetail;
   movieTitle:string ='';
   releaseDate:string='';
   // parameter:{ id: string; } | undefined;
